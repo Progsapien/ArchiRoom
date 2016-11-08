@@ -1,7 +1,7 @@
 ﻿/* Background */
 
 body {
-    background: white;
+    background: black;
 }
 
 #background_image {
@@ -9,6 +9,7 @@ body {
     top: 0;
     left: 0;
     background-size: cover;
+    opacity: 0;
 }
 
 /* Switcher */
@@ -19,11 +20,15 @@ body {
     bottom: 30px;
 }
 
+#background_switcher_table {
+    width: 100%;
+}
+
 .background_switcher_buttons {
     background: rgba(255,255,255,0.8);
     font-family: Consolas;
-    height: 50px;
-    width: 40px;
+    height: 65px;
+    width: 15%;
     text-align: center;
 }
 
@@ -38,5 +43,5 @@ body {
 }
 
 #name_project_button {
-    width: 120px;
+    width: 60%;
 }
