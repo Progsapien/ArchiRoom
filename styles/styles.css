@@ -45,3 +45,9 @@ body {
 #name_project_button {
     width: 60%;
 }
+
+/* Loader */
+
+#loader_background_image {
+    position: absolute;
+}

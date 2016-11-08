@@ -7,15 +7,15 @@
 
     // Для 0 и 2 действия из background_image.js
 
-    buttons[0].onclick = previousImageF;
-    buttons[2].onclick = nextImageF;
+    buttons[0].onclick = previousBackgroundImage;
+    buttons[2].onclick = nextBackgroundImage;
 
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].onmouseover = onOverButton;
         buttons[i].onmouseout = onOutButton;
     }
 
-    window.onresize = onResizeWindow
+    window.onresize = onResizeWindow;
     window.onload = onLoadWindow;
 
     // ..
@@ -38,7 +38,6 @@
             background_switcher.style.right = "";
         } else {
             background_switcher.style.left = "";
-            background_switcher.style.top = "";
             background_switcher.style.width = "300px";
             background_switcher.style.right = "30px";
             background_switcher.style.bottom = "30px";
