@@ -15,10 +15,6 @@ function parseImages() {
         background_images = this.responseText.split("<sep>");
         background_images.length = background_images.length - 1;
         nextImage();
-        nextImage();
-        nextImage();
-        previousImage();
-
     }
     request_images.send();
 }
@@ -52,8 +48,6 @@ function previousImage() {
 
     background_image.style.backgroundImage = "url(" + image_object.src + ")";
 }
-
-setInterval(nextImage, 1000);
 
 // Сцепляем события с функцией;
 

@@ -1,4 +1,6 @@
-﻿body {
+﻿/* Background */
+
+body {
     background: white;
 }
 
@@ -7,4 +9,34 @@
     top: 0;
     left: 0;
     background-size: cover;
+}
+
+/* Switcher */
+
+#background_switcher {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.background_switcher_buttons {
+    background: rgba(255,255,255,0.8);
+    font-family: Consolas;
+    height: 50px;
+    width: 40px;
+    text-align: center;
+}
+
+#background_undo_button {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+#background_redo_button {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#name_project_button {
+    width: 120px;
 }
