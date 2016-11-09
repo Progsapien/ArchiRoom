@@ -1,11 +1,11 @@
 ﻿
-// Извлекаем объект;
 nextBackgroundImage = null;
 previousBackgroundImage = null;
-onLoadBackground = null;
-onResizeBackground = null;
+functions_load = [];
+functions_resize = [];
 
 (function () {
+
     var background_image = document.getElementById("background_image");
     var loader_background_image = document.getElementById("loader_background_image");
     var background_images = [];
@@ -86,6 +86,8 @@ onResizeBackground = null;
 
     nextBackgroundImage = nextImage;
     previousBackgroundImage = previousImage;
-    onLoadBackground = onLoad;
-    onResizeBackground = onResize;
+
+    functions_load.push(onLoad);
+    functions_resize.push(onResize);
+
 }());

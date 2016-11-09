@@ -15,9 +15,6 @@
         buttons[i].onmouseout = onOutButton;
     }
 
-    window.onresize = onResizeWindow;
-    window.onload = onLoadWindow;
-
     // ..
 
     function onOverButton() {
@@ -42,13 +39,13 @@
             background_switcher.style.right = "30px";
             background_switcher.style.bottom = "30px";
         }
-
-        onResizeBackground();
     }
 
     function onLoadWindow() {
         onResizeWindow();
-        onLoadBackground();
     }
+
+    functions_load.push(onLoadWindow);
+    functions_resize.push(onResizeWindow);
 
 }())
