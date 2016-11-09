@@ -28,7 +28,7 @@
 
     function onResizeWindow() {
 
-        if (document.documentElement.clientWidth < 900) {
+        if (document.documentElement.clientWidth < 1000) {
             background_switcher.style.width = document.documentElement.clientWidth + "px";
             background_switcher.style.left = "0px";
             background_switcher.style.bottom = "0px";
