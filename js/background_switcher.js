@@ -18,12 +18,12 @@
     // ..
 
     function onOverButton() {
-        this.style.background = "rgba(200,200,200,0.8)";
+        this.style.background = "rgba(255,255,255,0.8)";
         this.style.cursor = "pointer";
     }
 
     function onOutButton() {
-        this.style.background = "rgba(255,255,255,0.8)";
+        this.style.background = "rgba(200,200,200,0.8)";
     }
 
     function onResizeWindow() {

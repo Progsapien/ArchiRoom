@@ -2,8 +2,10 @@
 (function () {
 
     var menu = document.getElementById("menu");
+    var open_menu = document.getElementById("logo_menu_open");
     var close_menu_button = document.getElementById("close_menu_button");
     var menu_items = document.getElementsByClassName("menu_item");
+    var menu_elements = document.getElementById("menu_elements");
     var open_menu_button = document.getElementById("open_menu_button");
     var timer_id;
     var hidden = true;
@@ -52,8 +54,9 @@
             left -= 10;
         } else {
             left = -(width);
-            clearInterval(timer_id);
             hidden = true;
+            open_menu.hidden = "";
+            clearInterval(timer_id);
         }
         menu.style.left = left + "px";
     }
@@ -85,13 +88,20 @@
     }
 
     open_menu_button.onclick = function () {
+        open_menu.hidden = "hidden";
         timer_id = setInterval(showMenu, 1);
     }
 
     // Menu items;
 
     function parseItems() {
-
+        request = new XMLHttpRequest();
+        request.open("GET", "php/parseSections.php");
+        request.onload = function () {
+            menu_elements.innerHTML = this.responseText;
+            configItems();
+        }
+        request.send();
     }
 
     function configItems() {
@@ -115,8 +125,7 @@
 
     close_menu_button.onmouseover = onOverCloseButton;
     close_menu_button.onmouseout = onOutCloseButton;
-    
-    configItems();
+    parseItems();
 
     functions_load.push(onLoad);
     functions_resize.push(onResize);
