@@ -6,47 +6,56 @@
     var menu_items = document.getElementsByClassName("menu_item");
     var open_menu_button = document.getElementById("open_menu_button");
     var timer_id;
-    var menu_layout_position;
     var hidden = true;
+    var left;
+    var width = 0;
     // ..
 
     function onLoad() {
         onResize();
-       // showMenu();
     }
 
     function onResize() {
         if (document.documentElement.clientWidth < 1000) {
-            menu.style.width = document.documentElement.clientWidth-20 + "px";
+            width = document.documentElement.clientWidth;
             menu.style.height = document.documentElement.clientHeight - 65 + "px";
             menu.style.fontSize = "200%";
         } else {
-            menu.style.width = "300px";
+            width = 300;
             menu.style.height = document.documentElement.clientHeight - 20 + "px";
             menu.style.fontSize = "100%";
         }
+        if (hidden) {
+            left = -width;
+        } else {
+            left = 0;
+        }
+        menu.style.width = width-20 + "px";
+        menu.style.left = left+"px";
     }
 
     // Menu layout
 
     function showMenu() {
-        if (timer_id == -1) {
-            timer_id = setInterval(showMenu, 1);
+        if (left < 0) {
+            left += 10;
         } else {
-            console.log(1);
-            if (menu.style.top < 0) {
-                menu.style.top -= 0.1;
-            } else {
-                menu.style.top = 0;
-                clearInterval(timer_id);
-                timer_id = -1;
-            }
+            left = 0;
+            clearInterval(timer_id);
+            hidden = false;
         }
-        console.log("stopped");
+        menu.style.left = left + "px";
     }
 
-    function closeMenu() {
-
+    function hideMenu() {
+        if (left > -(width)) {
+            left -= 10;
+        } else {
+            left = -(width);
+            clearInterval(timer_id);
+            hidden = true;
+        }
+        menu.style.left = left + "px";
     }
 
     // Close button
@@ -60,13 +69,24 @@
         this.style.opacity = 1;
     }
 
+    close_menu_button.onclick = function () {
+        timer_id = setInterval(hideMenu, 1);
+    }
+
     // Open button
 
     open_menu_button.onmouseover = function () {
         this.style.cursor = "pointer";
+        this.style.opacity = 0.4;
     }
 
-    open_menu_button.onclick = showMenu;
+    open_menu_button.onmouseout = function () {
+        this.style.opacity = 1;
+    }
+
+    open_menu_button.onclick = function () {
+        timer_id = setInterval(showMenu, 1);
+    }
 
     // Menu items;
 
@@ -90,11 +110,14 @@
         this.style.color = "white";
     }
 
+
+    // ....
+
     close_menu_button.onmouseover = onOverCloseButton;
     close_menu_button.onmouseout = onOutCloseButton;
     
     configItems();
 
-    functions_load.push(onResize);
+    functions_load.push(onLoad);
     functions_resize.push(onResize);
 }())
