@@ -63,6 +63,8 @@ body {
     padding-left: 20px;
     padding-top: 20px;
     font-size: 100%;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 #menu_elements {

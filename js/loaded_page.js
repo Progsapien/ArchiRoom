@@ -16,4 +16,5 @@
             functions_resize[i]();
         }
     }
+
 }())

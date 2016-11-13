@@ -20,7 +20,7 @@
     function onResize() {
         if (document.documentElement.clientWidth < 1000) {
             width = document.documentElement.clientWidth;
-            menu.style.height = document.documentElement.clientHeight - 65 + "px";
+            menu.style.height = document.documentElement.clientHeight - 20 + "px";
             menu.style.fontSize = "200%";
         } else {
             width = 300;
@@ -95,13 +95,16 @@
     // Menu items;
 
     function parseItems() {
-        request = new XMLHttpRequest();
-        request.open("GET", "php/parseSections.php");
-        request.onload = function () {
-            menu_elements.innerHTML = this.responseText;
-            configItems();
+        menu_elements.innerHTML = "<p class=\"menu_item\">ВСЕ ПРОЕКТЫ</p>";
+        var list_projects = [];
+        for (var i = 0; i < projects.length; i++) {
+            
+            if (list_projects.indexOf(projects[i].section.toUpperCase()) == -1) {
+                menu_elements.innerHTML += '<p class="menu_item">' + projects[i].section.toUpperCase() + "</p>";
+                list_projects.push(projects[i].section.toUpperCase());
+            }
         }
-        request.send();
+        configItems();
     }
 
     function configItems() {

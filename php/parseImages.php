@@ -8,8 +8,8 @@ foreach ($list_files as $item) {
             if(strpos($item_project, ".jpg") || strpos($item_project, ".png")) {
                 echo "projects/".$item."/".$item_project."<sep>";
             }
-        }
-    }
+		}
+	}
 }
 
 ?>

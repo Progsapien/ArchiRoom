@@ -1,8 +1,6 @@
 ﻿
 nextBackgroundImage = null;
 previousBackgroundImage = null;
-functions_load = [];
-functions_resize = [];
 
 (function () {
 
