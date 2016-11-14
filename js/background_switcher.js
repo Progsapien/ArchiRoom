@@ -3,19 +3,26 @@
 (function () {
     var buttons = document.getElementsByClassName("background_switcher_buttons");
     var background_switcher = document.getElementById("background_switcher");
+    var name_project_button = document.getElementById("name_project_button");
 
 
     // Для 0 и 2 действия из background_image.js
 
-    buttons[0].onclick = previousBackgroundImage;
-    buttons[2].onclick = nextBackgroundImage;
-
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].onmouseover = onOverButton;
         buttons[i].onmouseout = onOutButton;
+        buttons[i].onclick = onClickButtons;
     }
 
     // ..
+
+    function onClickButtons() {
+        if (this == buttons[0]) {
+            name_project_button.innerHTML = previousBackgroundImage();
+        } else if (this == buttons[2]) {
+            name_project_button.innerHTML = nextBackgroundImage();
+        }
+    }
 
     function onOverButton() {
         this.style.background = "rgba(255,255,255,0.8)";
@@ -43,6 +50,7 @@
 
     function onLoadWindow() {
         onResizeWindow();
+        name_project_button.innerHTML = nextBackgroundImage();
     }
 
     functions_load.push(onLoadWindow);

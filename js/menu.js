@@ -98,7 +98,6 @@
         menu_elements.innerHTML = "<p class=\"menu_item\">ВСЕ ПРОЕКТЫ</p>";
         var list_projects = [];
         for (var i = 0; i < projects.length; i++) {
-            
             if (list_projects.indexOf(projects[i].section.toUpperCase()) == -1) {
                 menu_elements.innerHTML += '<p class="menu_item">' + projects[i].section.toUpperCase() + "</p>";
                 list_projects.push(projects[i].section.toUpperCase());
