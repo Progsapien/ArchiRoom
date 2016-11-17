@@ -63,8 +63,12 @@ body {
     padding-left: 20px;
     padding-top: 20px;
     font-size: 100%;
-    overflow: auto;
+    overflow: visible;
     overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
 }
 
 #menu_elements {
@@ -80,4 +84,10 @@ body {
     left: 0;
     padding-left: 20px;
     padding-top: 20px;
+}
+
+#project_shower {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0,0,0,0.4);
 }

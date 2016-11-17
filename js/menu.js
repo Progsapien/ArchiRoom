@@ -11,16 +11,18 @@
     var hidden = true;
     var left;
     var width = 0;
+
     // ..
 
     function onLoad() {
         onResize();
+        menu.hidden = "";
     }
 
     function onResize() {
         if (document.documentElement.clientWidth < 1000) {
             width = document.documentElement.clientWidth;
-            menu.style.height = document.documentElement.clientHeight - 20 + "px";
+            menu.style.height = document.documentElement.clientHeight - 70 + "px";
             menu.style.fontSize = "200%";
         } else {
             width = 300;
@@ -40,7 +42,7 @@
 
     function showMenu() {
         if (left < 0) {
-            left += 10;
+            left += 15;
         } else {
             left = 0;
             clearInterval(timer_id);
@@ -51,7 +53,7 @@
 
     function hideMenu() {
         if (left > -(width)) {
-            left -= 10;
+            left -= 15;
         } else {
             left = -(width);
             hidden = true;
@@ -103,6 +105,7 @@
                 list_projects.push(projects[i].section.toUpperCase());
             }
         }
+        menu_elements.innerHTML += "------------<br><p class=\"menu_item\">КОНТАКТЫ</p>";
         configItems();
     }
 

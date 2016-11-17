@@ -33,7 +33,7 @@
         this.style.background = "rgba(200,200,200,0.8)";
     }
 
-    function onResizeWindow() {
+    function onResize() {
 
         if (document.documentElement.clientWidth < 1000) {
             background_switcher.style.width = document.documentElement.clientWidth + "px";
@@ -48,12 +48,14 @@
         }
     }
 
-    function onLoadWindow() {
-        onResizeWindow();
+    function onLoad() {
+        onResize();
         name_project_button.innerHTML = nextBackgroundImage();
+        background_switcher.hidden = "";
     }
 
-    functions_load.push(onLoadWindow);
-    functions_resize.push(onResizeWindow);
+
+    functions_load.push(onLoad);
+    functions_resize.push(onResize);
 
 }())
