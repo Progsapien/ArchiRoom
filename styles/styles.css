@@ -87,7 +87,27 @@ body {
 }
 
 #project_shower {
+    color: white;
+    font-family: Consolas;
     position: absolute;
     top: 0;
     background-color: rgba(0,0,0,0.4);
+}
+
+#shower_buttons {
+    position: inherit;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    height: 50px;
+}
+
+#project {
+    position: inherit;
+    top: 50px;
+}
+
+#about_project {
+    position: inherit;
+    top: 50px;
 }

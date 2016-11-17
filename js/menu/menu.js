@@ -1,4 +1,5 @@
 ﻿
+
 (function () {
 
     var menu = document.getElementById("menu");
@@ -113,6 +114,7 @@
         for (var i = 0; i < menu_items.length; i++) {
             menu_items[i].onmouseover = onOverItem;
             menu_items[i].onmouseout = onOutItem;
+            menu_items[i].onclick = onClickItem;
         }
     }
 
@@ -125,6 +127,10 @@
         this.style.color = "white";
     }
 
+    function onClickItem() {
+        console.log(123);
+        project_showSection(this.innerHTML);
+    }
 
     // ....
 
