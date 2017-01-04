@@ -86,28 +86,20 @@ body {
     padding-top: 20px;
 }
 
+/* Project shower */
+
 #project_shower {
-    color: white;
+    color: black;
     font-family: Consolas;
     position: absolute;
     top: 0;
-    background-color: rgba(0,0,0,0.4);
+    background-color: white;
 }
 
-#shower_buttons {
+#project_shower_header {
+    color: black;
     position: inherit;
     top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.4);
-    height: 50px;
-}
-
-#project {
-    position: inherit;
-    top: 50px;
-}
-
-#about_project {
-    position: inherit;
-    top: 50px;
+    height: 30px;
+    background-color: rgba(0,0,0,0.2);
 }
