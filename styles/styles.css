@@ -25,7 +25,8 @@ body {
 }
 
 .background_switcher_buttons {
-    background: rgba(200,200,200,0.8);
+    background: rgb(200,200,200);
+    opacity: 0.5;
     font-family: Consolas;
     height: 65px;
     width: 15%;

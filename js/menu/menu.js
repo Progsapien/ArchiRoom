@@ -8,15 +8,10 @@ var Menu = {
     width: 0,
     left: 0,
 
-    start: function() {
-        Menu.OpenButton.obj.onclick = Menu.OpenButton.onClick;
-        Menu.OpenButton.obj.onmouseover = Menu.OpenButton.onOver;
-        Menu.OpenButton.obj.onmouseout = Menu.OpenButton.onOut;
-        Menu.CloseButton.obj.onmouseout = Menu.CloseButton.onOut;
-        Menu.CloseButton.obj.onmouseover = Menu.CloseButton.onOver;
-        Menu.CloseButton.obj.onclick = Menu.CloseButton.onClick;
+    start: function () {
+        Menu.OpenButton.start();
+        Menu.CloseButton.start();
         Menu.left = -(Menu.width);
-
         Menu.MenuItems.parseItems();
     },
 
@@ -45,6 +40,12 @@ var Menu = {
     CloseButton: {
         obj: document.getElementById("close_menu_button"),
 
+        start: function() {
+            Menu.CloseButton.obj.onmouseout = Menu.CloseButton.onOut;
+            Menu.CloseButton.obj.onmouseover = Menu.CloseButton.onOver;
+            Menu.CloseButton.obj.onclick = Menu.CloseButton.onClick;
+        },
+
         onOver: function () {
             this.style.opacity = 0.4;
             this.style.cursor = "pointer";
@@ -62,6 +63,12 @@ var Menu = {
     OpenButton: {
 
         obj: document.getElementById("open_menu_button"),
+
+        start: function () {
+            Menu.OpenButton.obj.onclick = Menu.OpenButton.onClick;
+            Menu.OpenButton.obj.onmouseover = Menu.OpenButton.onOver;
+            Menu.OpenButton.obj.onmouseout = Menu.OpenButton.onOut;
+        },
 
         onClick: function () {
             Menu.timer_id = setInterval(Menu.showMenu, 1);

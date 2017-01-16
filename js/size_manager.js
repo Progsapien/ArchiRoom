@@ -28,32 +28,32 @@ var SizeManager = {
         
         if (SizeManager.client_width < 1000) {
 
-            // Background image
-
-            SizeManager.background_switcher.style.width = SizeManager.client_width + "px";
-            SizeManager.background_switcher.style.left = "0px";
-            SizeManager.background_switcher.style.bottom = "0px";
-            SizeManager.background_switcher.style.right = "";
-
             // Menu
             Menu.width = SizeManager.client_width;
             Menu.obj.style.height = SizeManager.client_height - 70 + "px";
             Menu.obj.style.fontSize = "200%";
 
+            // BackgroundSwitcher
+
+            BackgroundSwitcher.obj.style.width = SizeManager.client_width + "px";
+            BackgroundSwitcher.obj.style.left = "0px";
+            BackgroundSwitcher.obj.style.bottom = "0px";
+            BackgroundSwitcher.obj.style.right = "";
+
         } else {
-
-            // Background image
-
-            SizeManager.background_switcher.style.left = "";
-            SizeManager.background_switcher.style.width = "300px";
-            SizeManager.background_switcher.style.right = "30px";
-            SizeManager.background_switcher.style.bottom = "30px";
 
             // Menu
 
             Menu.obj.style.height = SizeManager.client_height - 20 + "px";
             Menu.obj.style.fontSize = "100%";
             Menu.width = 300;
+
+            // BackgroundSwitcher
+
+            BackgroundSwitcher.obj.style.left = "";
+            BackgroundSwitcher.obj.style.width = "300px";
+            BackgroundSwitcher.obj.style.right = "30px";
+            BackgroundSwitcher.obj.style.bottom = "30px";
         }
         if (Menu.obj.hidden) {
             Menu.obj.left = -(Menu.width);

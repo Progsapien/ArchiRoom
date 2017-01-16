@@ -1,61 +1,55 @@
 ﻿
+var BackgroundSwitcher = {
+    obj: document.getElementById("background_switcher"),
 
-(function () {
-    var buttons = document.getElementsByClassName("background_switcher_buttons");
-    var background_switcher = document.getElementById("background_switcher");
-    var name_project_button = document.getElementById("name_project_button");
+    start: function () {
+        BackgroundSwitcher.obj.hidden = "";
+        BackgroundSwitcher.Buttons.start();
+        BackgroundSwitcher.TitleButton.start();
+    },
 
+    Buttons: {
+        obj: document.getElementsByClassName("background_switcher_buttons"),
 
-    // Для 0 и 2 действия из background_image.js
+        start: function () {
+            for (var i = 0; i < BackgroundSwitcher.Buttons.obj.length; i++) {
+                BackgroundSwitcher.Buttons.obj[i].onmouseout = BackgroundSwitcher.Buttons.onOut;
+                BackgroundSwitcher.Buttons.obj[i].onmouseover = BackgroundSwitcher.Buttons.onOver;
+                if (i == 0 || i == 2) {
+                    BackgroundSwitcher.Buttons.obj[i].onclick = BackgroundSwitcher.Buttons.onClick;
+                }
+            }
 
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].onmouseover = onOverButton;
-        buttons[i].onmouseout = onOutButton;
-        buttons[i].onclick = onClickButtons;
-    }
+        },
 
-    // ..
+        onOut: function() {
+            this.style.opacity = 0.5;
+            this.style.cursor = "pointer";
+        },
 
-    function onClickButtons() {
-        if (this == buttons[0]) {
-            name_project_button.innerHTML = previousBackgroundImage();
-        } else if (this == buttons[2]) {
-            name_project_button.innerHTML = nextBackgroundImage();
+        onOver: function() {
+            this.style.opacity = 1;
+        },
+
+        onClick: function() {
+            if (this == BackgroundSwitcher.Buttons.obj[0]) {
+                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.prevImage();
+            } else if (this == BackgroundSwitcher.Buttons.obj[2]) {
+                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextImage();
+            }
+        }
+    },
+
+    TitleButton: {
+        obj: document.getElementById("name_project_button"),
+
+        start: function () {
+            BackgroundSwitcher.TitleButton.obj.onclick = BackgroundSwitcher.TitleButton.onClick;
+            BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextImage();
+        },
+
+        onClick: function () {
+            // show project
         }
     }
-
-    function onOverButton() {
-        this.style.background = "rgba(255,255,255,0.8)";
-        this.style.cursor = "pointer";
-    }
-
-    function onOutButton() {
-        this.style.background = "rgba(200,200,200,0.8)";
-    }
-
-    function onResize() {
-
-        if (document.documentElement.clientWidth < 1000) {
-            background_switcher.style.width = document.documentElement.clientWidth + "px";
-            background_switcher.style.left = "0px";
-            background_switcher.style.bottom = "0px";
-            background_switcher.style.right = "";
-        } else {
-            background_switcher.style.left = "";
-            background_switcher.style.width = "300px";
-            background_switcher.style.right = "30px";
-            background_switcher.style.bottom = "30px";
-        }
-    }
-
-    function onLoad() {
-        onResize();
-        name_project_button.innerHTML = nextBackgroundImage();
-        background_switcher.hidden = "";
-    }
-
-
-    functions_load.push(onLoad);
-    functions_resize.push(onResize);
-
-}())
+}
