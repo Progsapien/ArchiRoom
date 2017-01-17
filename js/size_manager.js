@@ -19,6 +19,7 @@ var SizeManager = {
     onResize: function () {
         SizeManager.client_width = document.documentElement.clientWidth;
         SizeManager.client_height = document.documentElement.clientHeight;
+
         // Background Image Config
 
         SizeManager.background_image.style.width = SizeManager.client_width + "px";
@@ -40,6 +41,11 @@ var SizeManager = {
             BackgroundSwitcher.obj.style.bottom = "0px";
             BackgroundSwitcher.obj.style.right = "";
 
+            // Project shower
+
+            ProjectShower.obj.style.left = "0px";
+            ProjectShower.obj.style.width = SizeManager.client_width + "px";
+
         } else {
 
             // Menu
@@ -54,7 +60,18 @@ var SizeManager = {
             BackgroundSwitcher.obj.style.width = "300px";
             BackgroundSwitcher.obj.style.right = "30px";
             BackgroundSwitcher.obj.style.bottom = "30px";
+
+            // Project shower
+
+            ProjectShower.obj.style.left = Menu.width + "px";
+            ProjectShower.obj.style.width = SizeManager.client_width - Menu.width + "px";
+
         }
+
+        ProjectShower.obj.style.height = SizeManager.client_height + "px";
+        ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
+        ProjectShower.top = SizeManager.client_height;
+
         if (Menu.obj.hidden) {
             Menu.obj.left = -(Menu.width);
             Menu.left = -(Menu.width);
@@ -68,3 +85,4 @@ var SizeManager = {
 }
 
 window.onresize = SizeManager.onResize;
+SizeManager.onResize();

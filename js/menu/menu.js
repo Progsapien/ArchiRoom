@@ -117,7 +117,7 @@ var Menu = {
         },
 
         onClick: function () {
-            // show section;
+            ProjectShower.showSection(this.innerHTML);
         }
     }
 }
