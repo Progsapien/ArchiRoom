@@ -70,7 +70,6 @@ var SizeManager = {
 
         ProjectShower.obj.style.height = SizeManager.client_height + "px";
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
-        ProjectShower.top = SizeManager.client_height;
 
         if (Menu.obj.hidden) {
             Menu.obj.left = -(Menu.width);

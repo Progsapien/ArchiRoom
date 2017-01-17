@@ -40,6 +40,14 @@ var Menu = {
     CloseButton: {
         obj: document.getElementById("close_menu_button"),
 
+        show: function() {
+            Menu.CloseButton.obj.hidden = "";
+        },
+
+        hide: function() {
+            Menu.CloseButton.obj.hidden = "hidden";
+        },
+
         start: function() {
             Menu.CloseButton.obj.onmouseout = Menu.CloseButton.onOut;
             Menu.CloseButton.obj.onmouseover = Menu.CloseButton.onOver;

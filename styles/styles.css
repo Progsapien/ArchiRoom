@@ -104,3 +104,15 @@ body {
     height: 30px;
     background-color: rgba(0,0,0,0.2);
 }
+
+#project_shower_header_close {
+    position: inherit;
+    right: 2px;
+}
+
+#project_shower_header_title {
+    position: inherit;
+    left: 10px;
+    top: 5px;
+    color: white;
+}
