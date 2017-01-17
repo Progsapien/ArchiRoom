@@ -1,13 +1,12 @@
 ﻿var ProjectShower = {
 
     obj: document.getElementById("project_shower"),
-    top: document.documentElement.clientHeight,
-    timer_id: 0,
-    opacity: 0,
+    width: 0,
+    hidden: true,
 
-    start: function() {
+    start: function () {
         ProjectShower.Header.Buttons.start();
-        ProjectShower.obj.style.top = ProjectShower.top + "px";
+        ProjectShower.hide();
     },
 
     showProject: function(project_index) {
@@ -17,55 +16,23 @@
     showSection: function (section_title) {
         ProjectShower.Header.Title.setTitle(section_title);
         Menu.CloseButton.hide();
-        if (ProjectShower.obj.hidden != "") {
-            ProjectShower.show();
-        }
+        ProjectShower.show();
     },
 
     show: function () {
-        ProjectShower.obj.hidden = "";
-        ProjectShower.timer_id = setInterval(ProjectShower.showing, 1);
+        if (ProjectShower.width != SizeManager.client_width) {
+            ProjectShower.obj.style.left = Menu.width + "px";
+        } else {
+            ProjectShower.obj.style.left = "0px";
+        }
+        ProjectShower.obj.style.opacity = 1;
+        ProjectShower.hidden = false;
     },
 
     hide: function() {
-        ProjectShower.timer_id = setInterval(ProjectShower.hidding, 1);
-    },
-
-    showing: function () {
-        if (ProjectShower.top > 0) {
-            ProjectShower.top -= 18;
-        } else {
-            ProjectShower.top = 0;
-            clearInterval(ProjectShower.timer_id);
-        };
-
-        if (ProjectShower.opacity < 1) {
-            ProjectShower.opacity += 0.05;
-        } else {
-            ProjectShower.opacity = 1;
-        }
-
-        ProjectShower.obj.style.opacity = ProjectShower.opacity;
-        ProjectShower.obj.style.top = ProjectShower.top + "px";
-    },
-
-    hidding: function () {
-
-        if (ProjectShower.top < SizeManager.client_height) {
-            ProjectShower.top += 18;
-        } else {
-            clearInterval(ProjectShower.timer_id);
-            ProjectShower.obj.hidden = "hidden";
-        }
-
-        if (ProjectShower.opacity > 0) {
-            ProjectShower.opacity -= 0.05;
-        } else {
-            ProjectShower.opacity = 0;
-        }
-
-        ProjectShower.obj.style.opacity = ProjectShower.opacity;
-        ProjectShower.obj.style.top = ProjectShower.top + "px";
+        ProjectShower.obj.style.left = -(ProjectShower.width) + "px";
+        ProjectShower.obj.style.opacity = 0;
+        ProjectShower.hidden = true;
     },
 
     Header: {

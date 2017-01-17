@@ -1,41 +1,27 @@
 ﻿
 var Menu = {
     obj: document.getElementById("menu"),
-
-    // ...
-
-    timer_id: 0,
     width: 0,
-    left: 0,
+    hidden: true,
 
     start: function () {
         Menu.OpenButton.start();
         Menu.CloseButton.start();
         Menu.left = -(Menu.width);
         Menu.MenuItems.parseItems();
+        Menu.hide();
     },
 
-    showMenu: function () {
-        if(Menu.left < 0) {
-            Menu.left += 15;
-            Menu.obj.hidden = "";
-        } else {
-            Menu.left = 0;
-            clearInterval(Menu.timer_id);
-        }
-        Menu.obj.style.left = Menu.left + "px";
+    show: function() {
+        Menu.hidden = false;
+        Menu.obj.style.left = "0px";
     },
 
-    hideMenu: function() {
-        if (Menu.left > -(Menu.width)) {
-            Menu.left -= 15;
-        } else {
-            Menu.left = -(Menu.width);
-            clearInterval(Menu.timer_id);
-            Menu.obj.hidden = "hidden";
-        }
-        Menu.obj.style.left = Menu.left + "px";
+    hide: function() {
+        Menu.hidden = true;
+        Menu.obj.style.left = -(Menu.width) + "px";
     },
+
 
     CloseButton: {
         obj: document.getElementById("close_menu_button"),
@@ -51,7 +37,7 @@ var Menu = {
         start: function() {
             Menu.CloseButton.obj.onmouseout = Menu.CloseButton.onOut;
             Menu.CloseButton.obj.onmouseover = Menu.CloseButton.onOver;
-            Menu.CloseButton.obj.onclick = Menu.CloseButton.onClick;
+            Menu.CloseButton.obj.onclick = Menu.hide;
         },
 
         onOver: function () {
@@ -62,10 +48,6 @@ var Menu = {
         onOut: function () {
             this.style.opacity = 1;
         },
-
-        onClick: function() {
-            Menu.timer_id = setInterval(Menu.hideMenu, 1);
-        }
     },
 
     OpenButton: {
@@ -73,13 +55,9 @@ var Menu = {
         obj: document.getElementById("open_menu_button"),
 
         start: function () {
-            Menu.OpenButton.obj.onclick = Menu.OpenButton.onClick;
+            Menu.OpenButton.obj.onclick = Menu.show;
             Menu.OpenButton.obj.onmouseover = Menu.OpenButton.onOver;
             Menu.OpenButton.obj.onmouseout = Menu.OpenButton.onOut;
-        },
-
-        onClick: function () {
-            Menu.timer_id = setInterval(Menu.showMenu, 1);
         },
 
         onOut: function () {

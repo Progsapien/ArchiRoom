@@ -43,8 +43,7 @@ var SizeManager = {
 
             // Project shower
 
-            ProjectShower.obj.style.left = "0px";
-            ProjectShower.obj.style.width = SizeManager.client_width + "px";
+            ProjectShower.width = SizeManager.client_width;
 
         } else {
 
@@ -63,25 +62,35 @@ var SizeManager = {
 
             // Project shower
 
-            ProjectShower.obj.style.left = Menu.width + "px";
-            ProjectShower.obj.style.width = SizeManager.client_width - Menu.width + "px";
+            ProjectShower.width = SizeManager.client_width - Menu.width;
 
         }
 
         ProjectShower.obj.style.height = SizeManager.client_height + "px";
+        ProjectShower.obj.style.width = ProjectShower.width + "px";
+        console.log("WIDTH " + ProjectShower.obj.style.width);
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
 
-        if (Menu.obj.hidden) {
-            Menu.obj.left = -(Menu.width);
-            Menu.left = -(Menu.width);
+        if (Menu.hidden) {
+            Menu.obj.style.left = -(Menu.width) + "px";
         } else {
-            Menu.left = 0;
+            Menu.obj.style.left = "0px";
         }
 
+        if (ProjectShower.hidden) {
+            ProjectShower.obj.style.left = -(ProjectShower.width) + "px";
+        } else {
+            if (SizeManager.client_width < 1000) {
+                ProjectShower.obj.style.left = "0px";
+            } else {
+                ProjectShower.obj.style.left = Menu.width + "px";
+            }
+        }
+
+
+
         Menu.obj.style.width = Menu.width - 20 + "px";
-        Menu.obj.style.left = Menu.left + "px";
     }
 }
 
 window.onresize = SizeManager.onResize;
-SizeManager.onResize();
