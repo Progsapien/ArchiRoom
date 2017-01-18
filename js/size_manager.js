@@ -11,8 +11,8 @@ var SizeManager = {
     
     // ..
 
-    client_width: document.documentElement.clientWidth,
-    client_height: document.documentElement.clientHeight,
+    client_width: document.body.offsetWidth,
+    client_height: document.body.offsetHeight,
 
     // functions
 
@@ -22,10 +22,10 @@ var SizeManager = {
 
         // Background Image Config
 
-        SizeManager.background_image.style.width = SizeManager.client_width + "px";
-        SizeManager.background_image.style.height = SizeManager.client_height + "px";
-        SizeManager.loader_background_image.style.left = SizeManager.client_width / 2 + "px";
-        SizeManager.loader_background_image.style.top = SizeManager.client_height / 2 + "px";
+        BackgroundImage.obj.style.width = SizeManager.client_width + "px";
+        BackgroundImage.obj.style.height = SizeManager.client_height + 20 + "px";
+        BackgroundImage.loader_background_image.style.left = SizeManager.client_width / 2 + "px";
+        BackgroundImage.loader_background_image.style.top = SizeManager.client_height / 2 + "px";
         
         if (SizeManager.client_width < 1000) {
 
@@ -68,7 +68,6 @@ var SizeManager = {
 
         ProjectShower.obj.style.height = SizeManager.client_height + "px";
         ProjectShower.obj.style.width = ProjectShower.width + "px";
-        console.log("WIDTH " + ProjectShower.obj.style.width);
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
 
         if (Menu.hidden) {

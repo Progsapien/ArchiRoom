@@ -10,7 +10,7 @@ body {
     left: 0;
     background-size: cover;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all 0.7s;
 }
 
 /* Switcher */
@@ -61,6 +61,7 @@ body {
 #menu {
     position: absolute;
     top: 0px;
+    left: -1000px;
     width: 300px;
     height: 100px;
     background: rgba(0,0,0,0.7);
@@ -81,6 +82,11 @@ body {
     top: 80px;
     color: white;
     font-family: Consolas;
+}
+
+#logo_menu {
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
 }
 
 .menu_item {
@@ -129,5 +135,5 @@ body {
 /* Animation */
 
 .animated {
-    transition: all 0.3s;
+    transition: all 0.3s, transform 1s;
 }

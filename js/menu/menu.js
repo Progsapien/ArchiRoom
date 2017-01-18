@@ -3,6 +3,7 @@ var Menu = {
     obj: document.getElementById("menu"),
     width: 0,
     hidden: true,
+    logo: document.getElementById("logo_menu"),
 
     start: function () {
         Menu.OpenButton.start();
@@ -15,11 +16,15 @@ var Menu = {
     show: function() {
         Menu.hidden = false;
         Menu.obj.style.left = "0px";
+        Menu.CloseButton.obj.style.transform = "rotate(180deg)";
+        Menu.logo.style.transform = "scale(1)";
     },
 
     hide: function() {
         Menu.hidden = true;
         Menu.obj.style.left = -(Menu.width) + "px";
+        Menu.CloseButton.obj.style.transform = "none";
+        Menu.logo.style.transform = "scale(0)";
     },
 
 

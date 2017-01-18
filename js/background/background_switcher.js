@@ -24,10 +24,10 @@ var BackgroundSwitcher = {
 
         onOut: function() {
             this.style.opacity = 0.5;
-            this.style.cursor = "pointer";
         },
 
-        onOver: function() {
+        onOver: function () {
+            this.style.cursor = "pointer";
             this.style.opacity = 1;
         },
 
