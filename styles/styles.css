@@ -109,7 +109,7 @@ body {
     position: absolute;
     top: 0;
     background: rgba(0,0,0,0.4);
-    transition: all 0.3s cubic-bezier(0, .5, .5, 1);
+    transition: all 0.3s;
 }
 
 #project_shower_header {

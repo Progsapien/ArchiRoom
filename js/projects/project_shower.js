@@ -14,9 +14,21 @@
     },
 
     showSection: function (section_title) {
+
+        ProjectShower.Projects.obj.innerHTML = "";
         ProjectShower.Header.Title.setTitle(section_title);
         Menu.CloseButton.hide();
         ProjectShower.show();
+        if (SizeManager.client_width < 1000) {
+            Menu.hide();
+        };
+
+        for (var i = 0; i < projects.length; i++) {
+            if (projects[i].section.toUpperCase() == section_title) {
+                Project.parseInfo(i);
+                ProjectShower.Projects.obj.innerHTML += Project.toUI();
+            }
+        }
     },
 
     show: function () {
