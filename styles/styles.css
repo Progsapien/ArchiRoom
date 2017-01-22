@@ -120,6 +120,11 @@ body {
     background-color: rgba(0,0,0,0.2);
 }
 
+#project_shower_projects {
+    position: inherit;
+    top: 30px;
+}
+
 #project_shower_header_close {
     position: inherit;
     right: 2px;
@@ -131,6 +136,19 @@ body {
     top: 5px;
     color: white;
 }
+
+.section_item {
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all 0.4s;
+}
+
+    .section_item:hover {
+        opacity: 0.7;
+        background-size: 400px 400px;
+        cursor: pointer;
+        
+    }
 
 /* Animation */
 

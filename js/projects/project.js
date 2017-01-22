@@ -12,6 +12,7 @@
     },
 
     toUI: function () {
-        return "<div class=\"section_item\">"+Project.title;
+        var ui_component = "<div class=\"section_item\" style=\"position: inherit; padding-left: 10px; padding-top: 10px; background-size: 300px; background-position: -500px; width: 300px; height: 300px; background: url("+Project.path+"/"+Project.pictures[0]+");\">";
+        return ui_component;
     }
 }
