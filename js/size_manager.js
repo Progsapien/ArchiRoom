@@ -49,7 +49,7 @@ var SizeManager = {
 
             // Menu
 
-            Menu.obj.style.height = SizeManager.client_height - 20 + "px";
+            Menu.obj.style.height = BackgroundImage.obj.style.height;
             Menu.obj.style.fontSize = "100%";
             Menu.width = 300;
 
@@ -66,7 +66,7 @@ var SizeManager = {
 
         }
 
-        ProjectShower.obj.style.height = SizeManager.client_height + "px";
+        ProjectShower.obj.style.height = BackgroundImage.obj.style.height;
         ProjectShower.obj.style.width = ProjectShower.width + "px";
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
 
