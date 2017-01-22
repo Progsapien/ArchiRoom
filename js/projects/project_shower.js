@@ -25,8 +25,8 @@
 
         for (var i = 0; i < projects.length; i++) {
             if (projects[i].section.toUpperCase() == section_title) {
-                Project.parseInfo(i);
-                ProjectShower.Projects.obj.innerHTML += Project.toUI();
+                ProjectShower.Projects.obj.innerHTML += Project.toUI(i);
+                console.log(Project.toUI(i));
             }
         }
     },
@@ -70,6 +70,7 @@
 
             onClickClose: function () {
                 //..
+                Menu.setTheme("dark");
                 Menu.CloseButton.show();
                 ProjectShower.hide();
             }

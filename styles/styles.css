@@ -70,7 +70,7 @@ body {
     font-size: 100%;
     overflow: visible;
     overflow-x: hidden;
-    transition: all 0.5s cubic-bezier(0, .5, .5, 1);
+    transition: all 0.2s cubic-bezier(0, .5, .5, 1);
 }
 
 ::-webkit-scrollbar {
@@ -108,7 +108,7 @@ body {
     font-family: Consolas;
     position: absolute;
     top: 0;
-    background: rgba(0,0,0,0.4);
+    background: white;
     transition: all 0.3s;
 }
 
@@ -117,12 +117,21 @@ body {
     position: inherit;
     top: 0;
     height: 30px;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgb(200,200,200);
+}
+
+#project_shower_header_title {
+    color: black;
 }
 
 #project_shower_header_close {
     position: inherit;
     right: 2px;
+}
+
+#project_shower_projects {
+    position: inherit;
+    top: 30px;
 }
 
 #project_shower_header_title {
