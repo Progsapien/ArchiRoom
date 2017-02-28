@@ -10,22 +10,26 @@
         Project.pictures = projects[project_id].pictures;
         Project.path = projects[project_id].path;
     },
-
-<<<<<<< HEAD
-    toUI: function () {
-        var ui_component = "<div class=\"section_item\" style=\"position: inherit; padding-left: 10px; padding-top: 10px; background-size: 300px; background-position: -500px; width: 300px; height: 300px; background: url("+Project.path+"/"+Project.pictures[0]+");\">";
-        return ui_component;
-=======
     toUI: function (project_id) {
         Project.parseInfo(project_id);
+
         var div_image = "<div class=\"section_item\"";
-        var div_img = Project.path+"/"+Project.pictures[0];
-        var div_style = "width: 300px; height: 300px; background-image: url("+div_img+");";
-        var span_project_title = Project.title;
-        var span_style = "position: inherit; background-color: white; width: 300px; height: 20px; color: black; top: 280px; left: 0;";
-        var span_title = "<div style=\"" + span_style + "\">" + span_project_title + "</div>";
-        div_image = div_image + " style=\"" + div_style + "\">"+span_title+"</div>";
-        return div_image+div_image;
->>>>>>> 26823e4734370c0c479d6454a1fb09b807055067
+        var div_style = "background-image: url(" + Project.path+"/"+Project.pictures[0] + ");";
+
+        div_image = div_image + " style=\"" + div_style + "\">" + Project.title + "</div>";
+
+        return div_image;
+    },
+
+    getImages: function (project_id) {
+        Project.parseInfo(project_id);
+        var div_images = "";
+        for (var i = 0; i < Project.pictures.length; i++) {
+            var tmp_height = Math.floor((Math.random() * 300) + 100) + "px";
+            var tmp_div_image = "<div class=\"project_image\"";
+            var tmp_div_style = "background-image: url(" + Project.path + "/" + Project.pictures[i] + ");";
+            div_images += tmp_div_image + " style=\"" + tmp_div_style + "height:"+tmp_height+";\"></div>";
+        }
+        return div_images+div_images+div_images+div_images;
     }
 }

@@ -13,22 +13,11 @@ var BackgroundSwitcher = {
 
         start: function () {
             for (var i = 0; i < BackgroundSwitcher.Buttons.obj.length; i++) {
-                BackgroundSwitcher.Buttons.obj[i].onmouseout = BackgroundSwitcher.Buttons.onOut;
-                BackgroundSwitcher.Buttons.obj[i].onmouseover = BackgroundSwitcher.Buttons.onOver;
                 if (i == 0 || i == 2) {
                     BackgroundSwitcher.Buttons.obj[i].onclick = BackgroundSwitcher.Buttons.onClick;
                 }
             }
 
-        },
-
-        onOut: function() {
-            this.style.opacity = 0.5;
-        },
-
-        onOver: function () {
-            this.style.cursor = "pointer";
-            this.style.opacity = 1;
         },
 
         onClick: function() {

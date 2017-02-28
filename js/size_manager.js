@@ -23,7 +23,7 @@ var SizeManager = {
         // Background Image Config
 
         BackgroundImage.obj.style.width = SizeManager.client_width + "px";
-        BackgroundImage.obj.style.height = SizeManager.client_height + 20 + "px";
+        BackgroundImage.obj.style.height = SizeManager.client_height + "px";
         BackgroundImage.loader_background_image.style.left = SizeManager.client_width / 2 + "px";
         BackgroundImage.loader_background_image.style.top = SizeManager.client_height / 2 + "px";
         
@@ -49,7 +49,7 @@ var SizeManager = {
 
             // Menu
 
-            Menu.obj.style.height = BackgroundImage.obj.style.height;
+            Menu.obj.style.height = SizeManager.client_height - 20 + "px";
             Menu.obj.style.fontSize = "100%";
             Menu.width = 300;
 
@@ -69,6 +69,15 @@ var SizeManager = {
         ProjectShower.obj.style.height = BackgroundImage.obj.style.height;
         ProjectShower.obj.style.width = ProjectShower.width + "px";
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
+        ProjectShower.About.obj.style.width = ProjectShower.obj.style.width;
+        ProjectShower.About.obj.style.top = "40px";
+        ProjectShower.About.Title.obj.style.width = ProjectShower.About.obj.style.width;
+        ProjectShower.About.Body.obj.style.width = ProjectShower.About.obj.style.width;
+        ProjectShower.Projects.obj.style.height = SizeManager.client_height - 80 + "px";
+        ProjectShower.Projects.obj.style.width = ProjectShower.obj.style.width;
+
+        Menu.MenuItems.menu_elements.style.height = SizeManager.client_height - 70 + "px";
+        Menu.MenuItems.menu_elements.style.width = Menu.width - Menu.obj.style.paddingLeft + "px";
 
         if (Menu.hidden) {
             Menu.obj.style.left = -(Menu.width) + "px";

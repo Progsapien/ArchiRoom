@@ -1,16 +1,26 @@
-﻿/* Background */
+﻿
+@font-face {
+    font-family: BauhausCTT; 
+    src: url(../fonts/Bauhaus.otf); 
+}
+
+/* Background */
 
 body {
     background: black;
+    overflow: hidden;
 }
+
 
 #background_image {
     position: absolute;
+    width: 100%;
+    height: 300px;
     top: 0;
     left: 0;
     background-size: cover;
     opacity: 0;
-    transition: all 0.7s;
+    transition: all 0.2s;
 }
 
 /* Switcher */
@@ -28,13 +38,19 @@ body {
 
 .background_switcher_buttons {
     background: rgb(200,200,200);
-    opacity: 0.5;
-    font-family: Consolas;
+    opacity: 0.8;
+    font-family: BauhausCTT; 
     height: 65px;
     width: 15%;
     text-align: center;
+    box-shadow: black 1px 1px 4px;
     transition: all 0.3s;
 }
+
+    .background_switcher_buttons:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 
 #background_undo_button {
     border-bottom-left-radius: 3px;
@@ -68,8 +84,7 @@ body {
     padding-left: 20px;
     padding-top: 20px;
     font-size: 100%;
-    overflow: visible;
-    overflow-x: hidden;
+    overflow: hidden;
     transition: all 0.2s cubic-bezier(0, .5, .5, 1);
 }
 
@@ -81,12 +96,13 @@ body {
     position: inherit;
     top: 80px;
     color: white;
-    font-family: Consolas;
+    font-family: BauhausCTT; 
+    overflow: auto;
 }
 
 #logo_menu {
     transition: transform 0.5s;
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
 }
 
 .menu_item {
@@ -108,8 +124,9 @@ body {
     font-family: Consolas;
     position: absolute;
     top: 0;
-    background: white;
-    transition: all 0.3s;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.2s;
+    overflow: hidden;
 }
 
 #project_shower_header {
@@ -117,16 +134,11 @@ body {
     position: inherit;
     top: 0;
     height: 30px;
-    background-color: rgb(200,200,200);
+    background-color: rgba(0,0,0,0.5);
 }
 
 #project_shower_header_title {
     color: black;
-}
-
-#project_shower_projects {
-    position: inherit;
-    top: 30px;
 }
 
 #project_shower_header_close {
@@ -134,9 +146,23 @@ body {
     right: 2px;
 }
 
+    #project_shower_header_close:hover {
+        opacity: 0.4;
+        cursor: pointer;
+    }
+
 #project_shower_projects {
     position: inherit;
     top: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
+    column-gap: 0.5em;
+    column-width: auto; 
+    column-count: 4;
+    -moz-column-gap: 0.5em;
+    -webkit-column-gap: 0.5em;
 }
 
 #project_shower_header_title {
@@ -146,18 +172,69 @@ body {
     color: white;
 }
 
-.section_item {
-    padding-left: 10px;
-    padding-right: 10px;
+/* Project Shower : Section Item, Project Image */
+
+.section_item, .project_image {
+    display: inline-block;
+    padding: 1em;
+    margin: 0 0 0.4em;
     transition: all 0.4s;
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    background-color: black;
+    background-size: cover;
+    color: white;
+    text-shadow: black 1px 1px 4px;
+    font-family: BauhausCTT;
 }
 
-    .section_item:hover {
-        opacity: 0.7;
-        background-size: 400px 400px;
+    .section_item:hover, .project_image:hover {
+        opacity: 0.8;
         cursor: pointer;
-        
     }
+
+.section_item_title {
+    position: inherit;
+    color: white;
+    font-family: BauhausCTT; 
+    text-shadow: black 1px 1px 4px;
+}
+
+/* Project Shower : About Project */
+
+#project_shower_about {
+    position: inherit;
+    left: 0;
+    height: 450px;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.3s;
+}
+
+#project_shower_about_title {
+    position: inherit;
+    left: 0;
+    top: 0;
+    height: 30px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    transition: all 0.3s;
+}
+
+    #project_shower_about_title:hover {
+        background: rgba(0,0,0,0.6);
+        cursor: pointer;
+    }
+
+#project_shower_about_body {
+    position: inherit;
+    left: 0;
+    top: 30px;
+    height: 420px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+}
 
 /* Animation */
 
