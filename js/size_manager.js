@@ -72,11 +72,10 @@ var SizeManager = {
         ProjectShower.About.obj.style.width = ProjectShower.obj.style.width;
         ProjectShower.About.obj.style.top = "40px";
         ProjectShower.About.Title.obj.style.width = ProjectShower.About.obj.style.width;
-        ProjectShower.About.Body.obj.style.width = ProjectShower.About.obj.style.width;
-        ProjectShower.Projects.obj.style.height = SizeManager.client_height - 80 + "px";
-        ProjectShower.Projects.obj.style.width = ProjectShower.obj.style.width;
-
-        Menu.MenuItems.menu_elements.style.height = SizeManager.client_height - 70 + "px";
+        ProjectShower.About.Body.obj.style.width = ProjectShower.width - ProjectShower.About.Body.obj.style.paddingLeft - 20 + "px";
+        ProjectShower.Projects.Parent.obj.style.height = SizeManager.client_height - 80 + "px";
+        ProjectShower.Projects.Parent.obj.style.width = ProjectShower.width + "px";
+        Menu.MenuItems.menu_elements.style.height = SizeManager.client_height - 150 + "px";
         Menu.MenuItems.menu_elements.style.width = Menu.width - Menu.obj.style.paddingLeft + "px";
 
         if (Menu.hidden) {

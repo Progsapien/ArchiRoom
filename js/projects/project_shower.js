@@ -12,7 +12,6 @@
     },
 
     showProject: function (project_index) {
-        console.log(Project.getImages(1));
         ProjectShower.Projects.obj.innerHTML = Project.getImages(1);
     },
 
@@ -164,6 +163,7 @@
 
         Body: {
             obj: document.getElementById("project_shower_about_body"),
+            text: "",
 
             setBody: function (body) {
                 ProjectShower.About.Body.obj.innerHTML = body;
@@ -180,6 +180,8 @@
             for (var i = 0; i < ProjectShower.Projects.list.length; i++) {
                 ProjectShower.Projects.list[i].onclick = ProjectShower.Projects.onClickProject;
             }
+
+            console.log(ProjectShower.Projects.list[0].project_item);
         },
 
         onClickProject: function () {
@@ -187,6 +189,10 @@
             ProjectShower.Header.Title.setTitle(this.innerHTML);
             ProjectShower.About.show();
             ProjectShower.showProject(0);
+        },
+
+        Parent: {
+            obj: document.getElementById("project_shower_project_parent")
         }
     }
 }

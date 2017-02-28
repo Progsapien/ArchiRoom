@@ -92,6 +92,8 @@ body {
     width: 0px;
 }
 
+
+
 #menu_elements {
     position: inherit;
     top: 80px;
@@ -152,17 +154,22 @@ body {
     }
 
 #project_shower_projects {
-    position: inherit;
-    top: 30px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 10px;
     overflow: auto;
-    column-gap: 0.5em;
-    column-width: auto; 
-    column-count: 4;
-    -moz-column-gap: 0.5em;
-    -webkit-column-gap: 0.5em;
+    column-gap: 5px;
+    column-width: 300px;
+    column-count: auto;
+    -moz-column-gap: 5px;
+    -webkit-column-gap: 5px;
+}
+
+/* Костылек чтобы галерея прокручивалась. По иному никак. */
+
+#project_shower_project_parent {
+    position: inherit;
+    padding: 5px 5px 5px 5px;
+    overflow: auto;
+    top: 30px;
 }
 
 #project_shower_header_title {
@@ -177,7 +184,7 @@ body {
 .section_item, .project_image {
     display: inline-block;
     padding: 1em;
-    margin: 0 0 0.4em;
+    margin: 0 0 5px;
     transition: all 0.4s;
     box-sizing: border-box;
     width: 100%;
@@ -231,9 +238,12 @@ body {
     position: inherit;
     left: 0;
     top: 30px;
-    height: 420px;
+    height: 400px;
     background: rgba(0,0,0,0.8);
     color: white;
+    padding: 10px 10px 10px 10px;
+    word-wrap: break-word;
+    overflow: auto;
 }
 
 /* Animation */

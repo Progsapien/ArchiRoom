@@ -25,11 +25,11 @@
         Project.parseInfo(project_id);
         var div_images = "";
         for (var i = 0; i < Project.pictures.length; i++) {
-            var tmp_height = Math.floor((Math.random() * 300) + 100) + "px";
+            var tmp_height = Math.floor((Math.random() * 250) + 170) + "px";
             var tmp_div_image = "<div class=\"project_image\"";
             var tmp_div_style = "background-image: url(" + Project.path + "/" + Project.pictures[i] + ");";
             div_images += tmp_div_image + " style=\"" + tmp_div_style + "height:"+tmp_height+";\"></div>";
         }
-        return div_images+div_images+div_images+div_images;
+        return div_images;
     }
 }
