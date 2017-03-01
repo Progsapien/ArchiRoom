@@ -197,7 +197,7 @@ body {
 }
 
     .section_item:hover, .project_image:hover {
-        opacity: 0.8;
+        border: solid 1px gray;
         cursor: pointer;
     }
 

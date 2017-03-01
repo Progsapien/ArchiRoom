@@ -31,7 +31,6 @@ var SizeManager = {
 
             // Menu
             Menu.width = SizeManager.client_width;
-            Menu.obj.style.height = SizeManager.client_height - 70 + "px";
             Menu.obj.style.fontSize = "200%";
 
             // BackgroundSwitcher
@@ -49,7 +48,7 @@ var SizeManager = {
 
             // Menu
 
-            Menu.obj.style.height = SizeManager.client_height - 20 + "px";
+            
             Menu.obj.style.fontSize = "100%";
             Menu.width = 300;
 
@@ -77,6 +76,7 @@ var SizeManager = {
         ProjectShower.Projects.Parent.obj.style.width = ProjectShower.width + "px";
         Menu.MenuItems.menu_elements.style.height = SizeManager.client_height - 150 + "px";
         Menu.MenuItems.menu_elements.style.width = Menu.width - Menu.obj.style.paddingLeft + "px";
+        Menu.obj.style.height = SizeManager.client_height - 20 + "px";
 
         if (Menu.hidden) {
             Menu.obj.style.left = -(Menu.width) + "px";

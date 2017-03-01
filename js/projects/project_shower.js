@@ -3,7 +3,7 @@
     obj: document.getElementById("project_shower"),
     width: 0,
     hidden: true,
-    current_section: "",
+    current_project: "",
 
     start: function () {
         ProjectShower.Header.Buttons.start();
@@ -12,7 +12,7 @@
     },
 
     showProject: function (project_index) {
-        ProjectShower.Projects.obj.innerHTML = Project.getImages(1);
+        ProjectShower.Projects.obj.innerHTML = Project.getImages(project_index);
     },
 
 
@@ -35,7 +35,7 @@
             }
         }
 
-        ProjectShower.Projects.updateList();
+        ProjectShower.Projects.updateProjectList();
     },
 
     show: function () {
@@ -119,7 +119,6 @@
             // Подводит About для того чтобы юзер мог открыть секцию "подробнее"
             ProjectShower.About.obj.style.top = SizeManager.client_height - 30 - ProjectShower.About.Title.obj.style.height + "px";
             ProjectShower.About.obj.style.height = "30px";
-            console.log(ProjectShower.About.obj.style.height);
             ProjectShower.About.obj.hidden = "";
         },
 
@@ -163,7 +162,6 @@
 
         Body: {
             obj: document.getElementById("project_shower_about_body"),
-            text: "",
 
             setBody: function (body) {
                 ProjectShower.About.Body.obj.innerHTML = body;
@@ -173,22 +171,36 @@
 
     Projects: {
         obj: document.getElementById("project_shower_projects"),
-        list: "",
+        
 
-        updateList: function () {
-            ProjectShower.Projects.list = document.getElementsByClassName("section_item");
-            for (var i = 0; i < ProjectShower.Projects.list.length; i++) {
-                ProjectShower.Projects.list[i].onclick = ProjectShower.Projects.onClickProject;
+        updateProjectList: function () {
+            var list = "";
+            list = document.getElementsByClassName("section_item");
+            for (var i = 0; i < list.length; i++) {
+                list[i].onclick = ProjectShower.Projects.onClickProject;
             }
+        },
 
-            console.log(ProjectShower.Projects.list[0].project_item);
+        updateImagesList: function() {
+            var list = "";
+            list = document.getElementsByClassName("project_image");
+            for (var i = 0; i < list.length; i++) {
+                list[i].onclick = ProjectShower.Projects.onClickImage;
+            }
         },
 
         onClickProject: function () {
             ProjectShower.Projects.obj.innerHTML = "";
             ProjectShower.Header.Title.setTitle(this.innerHTML);
             ProjectShower.About.show();
-            ProjectShower.showProject(0);
+            ProjectShower.current_project = this.id[0];
+            ProjectShower.showProject(ProjectShower.current_project);
+            ProjectShower.Projects.updateImagesList();
+            ProjectShower.About.Body.setBody(Project.about);
+        },
+
+        onClickImage: function() {
+            console.log(this.id[0]);
         },
 
         Parent: {
