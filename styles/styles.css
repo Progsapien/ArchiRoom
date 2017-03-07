@@ -246,6 +246,35 @@ body {
     overflow: auto;
 }
 
+/* Gallery */
+
+#gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.95);
+}
+
+#gallery_image {
+    width: 100%;
+}
+
+/* Gallery Buttons */
+
+#gallery_prev_button {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#gallery_next_button {
+    position: absolute;
+}
+
+#gallery_close_button {
+
+}
+
 /* Animation */
 
 .animated {

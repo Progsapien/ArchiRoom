@@ -26,6 +26,8 @@ var SizeManager = {
         BackgroundImage.obj.style.height = SizeManager.client_height + "px";
         BackgroundImage.loader_background_image.style.left = SizeManager.client_width / 2 + "px";
         BackgroundImage.loader_background_image.style.top = SizeManager.client_height / 2 + "px";
+        Gallery.obj.style.width = BackgroundImage.obj.style.width;
+        Gallery.obj.style.height = BackgroundImage.obj.style.height;
         
         if (SizeManager.client_width < 1000) {
 
