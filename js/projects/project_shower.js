@@ -113,6 +113,7 @@
         start: function() {
             ProjectShower.About.Title.start();
             ProjectShower.About.height = 450;
+            ProjectShower.About.Title.setTitle("Подробная информация");
         },
 
         show: function () {
@@ -124,13 +125,11 @@
 
         showFull: function() {
             ProjectShower.About.hidden = false;
-            ProjectShower.About.Title.setTitle("Скрыть");
             ProjectShower.About.obj.style.top = SizeManager.client_height - ProjectShower.About.height + "px";
         },
 
         hide: function () {
             ProjectShower.About.hidden = true;
-            ProjectShower.About.Title.setTitle("Показать");
             ProjectShower.About.show();
         },
 

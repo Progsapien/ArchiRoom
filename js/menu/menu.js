@@ -3,7 +3,6 @@ var Menu = {
     obj: document.getElementById("menu"),
     width: 0,
     hidden: true,
-    theme: "dark",
     logo: document.getElementById("logo_menu"),
 
     start: function () {
@@ -26,18 +25,6 @@ var Menu = {
         Menu.obj.style.left = -(Menu.width) + "px";
         Menu.CloseButton.obj.style.transform = "none";
         Menu.logo.style.transform = "scale(0)";
-    },
-
-    setTheme: function(color) {
-        if (color == "white") {
-            Menu.theme = "white";
-            Menu.obj.style.background = "white";
-            Menu.MenuItems.menu_elements.style.color = "black";
-        } else {
-            Menu.theme = "dark";
-            Menu.obj.style.background = "rgba(0,0,0,0.7)";
-            Menu.MenuItems.menu_elements.style.color = "white";
-        }
     },
 
     CloseButton: {
@@ -116,11 +103,7 @@ var Menu = {
         },
 
         onOut: function () {
-            if (Menu.theme == "dark") {
-                this.style.color = "white";
-            } else {
-                this.style.color = "black";
-            }
+            this.style.color = "white";
         },
 
         onClick: function () {

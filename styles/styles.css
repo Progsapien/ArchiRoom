@@ -19,6 +19,7 @@ body {
     top: 0;
     left: 0;
     background-size: cover;
+    background-position: center center;
     opacity: 0;
     transition: all 0.2s;
 }
@@ -191,6 +192,7 @@ body {
     height: 200px;
     background-color: black;
     background-size: cover;
+    background-position: center center;
     color: white;
     text-shadow: black 1px 1px 4px;
     font-family: BauhausCTT;
@@ -261,19 +263,42 @@ body {
 
 /* Gallery Buttons */
 
+.gallery_buttons {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 100%;
+}
+
+    .gallery_buttons:hover {
+        cursor: pointer;
+    }
+
 #gallery_prev_button {
     position: absolute;
-    top: 0;
     left: 0;
 }
 
 #gallery_next_button {
     position: absolute;
+    left: 50%;
 }
 
 #gallery_close_button {
-
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top:0;
+    right:0;
+    opacity: 0.5;
 }
+
+    #gallery_close_button:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 
 /* Animation */
 
