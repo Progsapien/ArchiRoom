@@ -16,23 +16,27 @@
             Gallery.Image.image_object.onload = Gallery.Image.onLoaded;
         },
 
-        loadImages: function (paths_array) {
-            if (Gallery.Image.paths_array.length != 0) {
-                Gallery.Image.paths_array = paths_array;
-            }
+        loadImages: function (project_id) {
+            Gallery.Image.paths_array = Project.getImagesPaths(project_id);
         },
 
-        loadImage: function(image_id) {
-            if (image_id <= Gallery.Image.paths_array.length) {
+        loadImage: function (image_id) {
+            if (image_id <= Gallery.Image.paths_array.length && image_id >= 0) {
+                Gallery.obj.hidden = "";
                 Gallery.Image.current_image = image_id;
+                Gallery.Image.obj.src = "img/loader.gif";
+                Gallery.Image.obj.style.width = "50px";
                 Gallery.Image.image_object.src = Gallery.Image.paths_array[image_id];
             }
+            console.log(Gallery.Image.paths_array[image_id]);
+            Gallery.Caption.setCaption(++image_id + " / " + Gallery.Image.paths_array.length);
         },
 
         onLoaded: function () {
             // ... 
             console.log("IMAGE LOADED");
-            Gallery.Image.obj.style.backgroundImage = Gallery.Image.image_object.src;
+            Gallery.Image.obj.style.width = "100%";
+            Gallery.Image.obj.src = Gallery.Image.image_object.src;
         },
     },
 
@@ -49,7 +53,14 @@
             obj: document.getElementById("gallery_prev_button"),
 
             start: function () {
+                Gallery.Buttons.Previous.obj.onclick = Gallery.Buttons.Previous.onClick;
+            },
 
+            onClick: function () {
+                if (--Gallery.Image.current_image == -1) {
+                    Gallery.Image.current_image = Gallery.Image.current_image = Gallery.Image.paths_array.length - 1;
+                }
+                Gallery.Image.loadImage(Gallery.Image.current_image);
             }
         },
 
@@ -57,7 +68,14 @@
             obj: document.getElementById("gallery_next_button"),
 
             start: function () {
+                Gallery.Buttons.Next.obj.onclick = Gallery.Buttons.Next.onClick;
+            },
 
+            onClick: function () {
+                if (++Gallery.Image.current_image == Gallery.Image.paths_array.length) {
+                    Gallery.Image.current_image = 0;
+                };
+                Gallery.Image.loadImage(Gallery.Image.current_image);
             }
         },
 

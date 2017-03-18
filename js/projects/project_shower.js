@@ -118,14 +118,13 @@
 
         show: function () {
             // Подводит About для того чтобы юзер мог открыть секцию "подробнее"
-            ProjectShower.About.obj.style.top = SizeManager.client_height - 30 - ProjectShower.About.Title.obj.style.height + "px";
-            ProjectShower.About.obj.style.height = "30px";
+            ProjectShower.About.obj.style.top = SizeManager.client_height - 50 - ProjectShower.About.Title.obj.style.height + "px";
             ProjectShower.About.obj.hidden = "";
         },
 
         showFull: function() {
             ProjectShower.About.hidden = false;
-            ProjectShower.About.obj.style.top = SizeManager.client_height - ProjectShower.About.height + "px";
+            ProjectShower.About.obj.style.top = SizeManager.client_height - ProjectShower.About.height-20 + "px";
         },
 
         hide: function () {
@@ -196,10 +195,12 @@
             ProjectShower.showProject(ProjectShower.current_project);
             ProjectShower.Projects.updateImagesList();
             ProjectShower.About.Body.setBody(Project.about);
+            Gallery.Image.loadImages(ProjectShower.current_project);
         },
 
         onClickImage: function() {
             console.log(this.id[0]);
+            Gallery.Image.loadImage(this.id[0]);
         },
 
         Parent: {

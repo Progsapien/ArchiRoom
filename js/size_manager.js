@@ -71,15 +71,18 @@ var SizeManager = {
         ProjectShower.obj.style.width = ProjectShower.width + "px";
         ProjectShower.Header.obj.style.width = ProjectShower.obj.style.width;
         ProjectShower.About.obj.style.width = ProjectShower.obj.style.width;
-        ProjectShower.About.obj.style.top = SizeManager.client_height - 30 - ProjectShower.About.Title.obj.style.height + "px";
+        ProjectShower.About.obj.style.top = SizeManager.client_height - 50 - ProjectShower.About.Title.obj.style.height + "px";
         ProjectShower.About.hidden = true;
         ProjectShower.About.Title.obj.style.width = ProjectShower.About.obj.style.width;
         ProjectShower.About.Body.obj.style.width = ProjectShower.width - ProjectShower.About.Body.obj.style.paddingLeft - 20 + "px";
-        ProjectShower.Projects.Parent.obj.style.height = SizeManager.client_height - 80 + "px";
+        ProjectShower.Projects.Parent.obj.style.height = SizeManager.client_height - 115 + "px";
         ProjectShower.Projects.Parent.obj.style.width = ProjectShower.width + "px";
+
         Menu.MenuItems.menu_elements.style.height = SizeManager.client_height - 150 + "px";
         Menu.MenuItems.menu_elements.style.width = Menu.width - Menu.obj.style.paddingLeft + "px";
         Menu.obj.style.height = SizeManager.client_height - 20 + "px";
+
+        Gallery.obj.style.lineHeight = SizeManager.client_height + "px";
 
         if (Menu.hidden) {
             Menu.obj.style.left = -(Menu.width) + "px";

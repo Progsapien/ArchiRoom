@@ -33,5 +33,17 @@
             div_images += tmp_div_image + " style=\"" + tmp_div_style + "height:"+tmp_height+";\"></div>";
         }
         return div_images;
+    },
+
+    getImagesPaths: function (project_id) {
+        Project.parseInfo(project_id);
+        var images = [];
+
+        for (var i = 0; i != Project.pictures.length; i++) {
+            images.push(Project.path + "/" + Project.pictures[i]);
+            console.log(Project.path + "/" + Project.pictures[i]);
+        }
+
+        return images;
     }
 }
