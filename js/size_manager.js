@@ -100,8 +100,6 @@ var SizeManager = {
             }
         }
 
-
-
         Menu.obj.style.width = Menu.width - 20 + "px";
     }
 }

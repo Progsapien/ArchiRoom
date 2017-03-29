@@ -34,10 +34,17 @@
 
         onLoaded: function () {
             // ... 
-            console.log("IMAGE LOADED");
-            Gallery.Image.obj.style.width = "100%";
+            
+            Gallery.Image.obj.style.width = "auto";
+            Gallery.Image.obj.style.height = "auto";
             Gallery.Image.obj.src = Gallery.Image.image_object.src;
         },
+
+        configSize: function () {
+            if (Gallery.Image.image_object.width > Gallery.Image.image_object.height) {
+
+            }
+        }
     },
 
 
