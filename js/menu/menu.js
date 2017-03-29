@@ -18,6 +18,7 @@ var Menu = {
         Menu.obj.style.left = "0px";
         Menu.CloseButton.obj.style.transform = "rotate(180deg)";
         Menu.logo.style.transform = "scale(1)";
+        Menu.OpenButton.obj.style.transform = "scale(0)";
     },
 
     hide: function() {
@@ -25,6 +26,7 @@ var Menu = {
         Menu.obj.style.left = -(Menu.width) + "px";
         Menu.CloseButton.obj.style.transform = "none";
         Menu.logo.style.transform = "scale(0)";
+        Menu.OpenButton.obj.style.transform = "scale(1)";
     },
 
     CloseButton: {
