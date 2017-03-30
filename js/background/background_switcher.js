@@ -22,9 +22,9 @@ var BackgroundSwitcher = {
 
         onClick: function() {
             if (this == BackgroundSwitcher.Buttons.obj[0]) {
-                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.prevImage();
+                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.previousProject();
             } else if (this == BackgroundSwitcher.Buttons.obj[2]) {
-                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextImage();
+                BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextProject();
             }
         }
     },
@@ -34,7 +34,7 @@ var BackgroundSwitcher = {
 
         start: function () {
             BackgroundSwitcher.TitleButton.obj.onclick = BackgroundSwitcher.TitleButton.onClick;
-            BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextImage();
+            BackgroundSwitcher.TitleButton.obj.innerHTML = BackgroundImage.nextProject();
         },
 
         onClick: function () {
